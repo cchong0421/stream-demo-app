@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+    app:
+        build: ./
+        command: streamlit run app/main.py --server.port 8000
+        volumes:
+            - ./:/myapp
+        ports:
+            - 8000:8000
+        image: streamlit-app-demo:latest
