@@ -1,7 +1,15 @@
 import streamlit as st
 import pandas as pd
 
+hide_streamlit_style = """
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+</style>
+"""
+
 st.set_page_config(layout="wide")
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 st.title("定期定額前十名交易戶數證券統計")
 
