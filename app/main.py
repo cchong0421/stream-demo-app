@@ -76,3 +76,6 @@ st.subheader("ETF 定期定額前十大交易股票")
 chart_data = df[['ETFIDName','ETF交易戶數']]
 
 st.bar_chart(chart_data, x="ETFIDName", y="ETF交易戶數", x_label="ETF 股票名稱", height=600)
+
+
+st.write("Author: Steven Hung")
