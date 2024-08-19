@@ -13,3 +13,5 @@ RUN pip install --upgrade pip setuptools wheel \
     && rm -rf /root/.cache/pip
 
 COPY ./ /myapp
+
+ENTRYPOINT [ "streamlit", "run", "app/main.py", "--server.port=8080", "--server.address=0.0.0.0" ]
