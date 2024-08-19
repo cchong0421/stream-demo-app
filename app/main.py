@@ -22,17 +22,7 @@ st.write(
 """
 )
 
-# df = pd.read_csv('app/ETFRank_202407.csv', dtype={
-#     '排序': 'int',
-#     '股票代號': 'string',
-#     '股票名稱': 'string',
-#     '股票交易戶數': 'int64',
-#     'ETF代號': 'string',
-#     'ETF名稱': 'string',
-#     'ETF交易戶數': 'int64'
-# })
-
-df = pd.read_csv('https://www.twse.com.tw/zh/ETFReport/ETFRank?response=open_data', dtype={
+df = pd.read_csv('app/ETFRank_202407.csv', dtype={
     '排序': 'int',
     '股票代號': 'string',
     '股票名稱': 'string',
@@ -41,6 +31,16 @@ df = pd.read_csv('https://www.twse.com.tw/zh/ETFReport/ETFRank?response=open_dat
     'ETF名稱': 'string',
     'ETF交易戶數': 'int64'
 })
+
+# df = pd.read_csv('https://www.twse.com.tw/zh/ETFReport/ETFRank?response=open_data', dtype={
+#     '排序': 'int',
+#     '股票代號': 'string',
+#     '股票名稱': 'string',
+#     '股票交易戶數': 'int64',
+#     'ETF代號': 'string',
+#     'ETF名稱': 'string',
+#     'ETF交易戶數': 'int64'
+# })
 
 df["StockIDName"] = df['股票代號'] + "-" + df['股票名稱']
 df["ETFIDName"] = df['ETF代號'] + "-" + df['ETF名稱']
