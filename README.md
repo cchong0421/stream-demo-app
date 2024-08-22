@@ -14,7 +14,7 @@ docker run -p 8080:8080 <image_name>
 
 ```bash
 git clone 
-cd streamlit-app-demo
+cd stream-demo-app
 
 docker-compose up -d --build
 
