@@ -1,5 +1,29 @@
 # Streamlit Demo
 
+## 開發環境設定
+
+- [] 安裝 Python 3.11.3 or higher
+- [] 安裝 Visual studio code
+- [] 安裝 Docker Desktop
+- [] 安裝 python 套件(virtualenv)
+
+    ```bash
+    $ pip install virtualenv
+    $ python -m venv .venv
+    ```
+
+- 啟動 Visual studio code 並從 Github clone .
+- 按 <kbd>Ctrl</kbd> + <kbd>`</kbd> 啟動終端機視窗
+- 然後執行下述指令
+
+    ```bash
+    # 啟動 python 虛擬環境
+    $ pip install -r requirements.txt
+
+    # 啟動範例程式
+    $ streamlit run app/main.py
+    ```
+
 ## Docker build image
 
 ```bash
@@ -14,7 +38,7 @@ docker run -p 8080:8080 <image_name>
 
 ```bash
 git clone 
-cd streamlit-app-demo
+cd stream-demo-app
 
 docker-compose up -d --build
 
