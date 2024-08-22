@@ -3,7 +3,7 @@ version: '3.7'
 services:
     app:
         build: ./
-        command: streamlit run app/main.py --server.port 8000
+        command: streamlit run app/main.py --server.port 8080
         volumes:
             - ./:/myapp
         ports:
