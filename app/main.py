@@ -11,6 +11,9 @@ pages = {
         st.Page("account/create_account.py", title="Create Account", icon=":material/search:"),
         st.Page("account/manage_account.py", title="Manage Account", icon=":material/search:"),
     ],
+    "OA": [
+        st.Page("oareq/query.py", title="OA需求單查詢", icon=":material/search:"),
+    ],
 }
 
 pg = st.navigation(pages)
