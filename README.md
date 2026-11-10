@@ -2,27 +2,47 @@
 
 ## 開發環境設定
 
-- [] 安裝 Python 3.11.3 or higher
-- [] 安裝 Visual studio code
-- [] 安裝 Docker Desktop
-- [] 安裝 python 套件(virtualenv)
+### 方法一：使用 uv（推薦）
 
+1. 安裝 [uv](https://docs.astral.sh/uv/)（若尚未安裝）：
     ```bash
-    $ pip install virtualenv
-    $ python -m venv .venv
+    # macOS / Linux
+    curl -LsSf https://astral.sh/uv/install.sh | sh
     ```
 
-- 啟動 Visual studio code 並從 Github clone .
-- 按 <kbd>Ctrl</kbd> + <kbd>`</kbd> 啟動終端機視窗
-- 然後執行下述指令
-
+2. 同步依賴與虛擬環境：
     ```bash
-    # 啟動 python 虛擬環境
-    $ pip install -r requirements.txt
-
-    # 啟動範例程式
-    $ streamlit run app/main.py
+    uv sync
     ```
+
+3. 啟動 Streamlit 應用程式：
+    ```bash
+    uv run streamlit run app/main.py
+    ```
+
+> **提示**：請使用 `uv run streamlit run app/main.py` 啟動。若直接執行 `uv run app/main.py` 會以純 Python 腳本模式運行，缺少 Streamlit runtime context 而無法開啟 Web 服務。
+
+---
+
+### 方法二：傳統 Python venv + pip
+
+1. 安裝 Python 3.11.3 或更高版本
+2. 建立並啟用虛擬環境：
+    ```bash
+    python -m venv .venv
+    source .venv/bin/activate  # macOS / Linux
+    # Windows 請執行: .venv\Scripts\activate
+    ```
+3. 安裝套件：
+    ```bash
+    pip install -r requirements.txt
+    ```
+4. 啟動範例程式：
+    ```bash
+    streamlit run app/main.py
+    ```
+
+---
 
 ## Docker build image
 
@@ -37,12 +57,12 @@ docker run -p 8080:8080 <image_name>
 ## Installation
 
 ```bash
-git clone 
+git clone <repository_url>
 cd stream-demo-app
 
 docker-compose up -d --build
 
-or
+# or
 
 docker build -t streamlit-demo-app.1.0.0 .
 ```
