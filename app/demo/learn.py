@@ -7,7 +7,7 @@ st.title("定期定額前十名交易戶數證券統計")
 
 st.subheader("範例資料")
 st.write(
-"""
+    """
 - Data Url : https://www.twse.com.tw/zh/ETFReport/ETFRank?response=open_data
 
 - Sample Data:
@@ -45,7 +45,7 @@ df = pd.read_csv('app/ETFRank_202407.csv', dtype={
 df["StockIDName"] = df['股票代號'] + "-" + df['股票名稱']
 df["ETFIDName"] = df['ETF代號'] + "-" + df['ETF名稱']
 
-df = df[['排序','StockIDName', '股票交易戶數', 'ETFIDName', 'ETF交易戶數']]
+df = df[['排序', 'StockIDName', '股票交易戶數', 'ETFIDName', 'ETF交易戶數']]
 
 st.divider()
 
@@ -53,27 +53,28 @@ st.subheader("顯示資料表")
 # st.write(df)
 
 # st.dataframe(data=None, width=None, height=None, *, use_container_width=False, hide_index=None, column_order=None, column_config=None, key=None, on_select="ignore", selection_mode="multi-row")
-st.dataframe(data=df, width=None, use_container_width=True, hide_index=True)
+st.dataframe(data=df, width="stretch", hide_index=True)
 
 #########################################################################################################
-### Display <hr> Line
+# Display <hr> Line
 #########################################################################################################
-st.divider()  
+st.divider()
 
 st.subheader("定期定額前十大交易股票")
 
-chart_data = df[['StockIDName','股票交易戶數']]
+chart_data = df[['StockIDName', '股票交易戶數']]
 
-st.bar_chart(chart_data, x="StockIDName", y="股票交易戶數", x_label="股票名稱", height=600)
+st.bar_chart(chart_data, x="StockIDName",
+             y="股票交易戶數", x_label="股票名稱", height=600)
 
 #########################################################################################################
-### Display <hr> Line
+# Display <hr> Line
 #########################################################################################################
 st.divider()
 
 st.subheader("ETF 定期定額前十大交易股票")
 
-chart_data = df[['ETFIDName','ETF交易戶數']]
+chart_data = df[['ETFIDName', 'ETF交易戶數']]
 
-st.bar_chart(chart_data, x="ETFIDName", y="ETF交易戶數", x_label="ETF 股票名稱", height=600)
-
+st.bar_chart(chart_data, x="ETFIDName", y="ETF交易戶數",
+             x_label="ETF 股票名稱", height=600)
