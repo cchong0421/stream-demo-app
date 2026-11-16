@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三大券商 IT 資本支出與人力分析 (2023-2025)</title>
+    <!-- 引入 Reveal.js 樣式 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/night.min.css">
+    <!-- 引入 Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* 客製化字體與排版 */
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal p, .reveal li {
+            font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+        }
+        .reveal h2 { color: #b1e8bd; font-size: 2.2em; margin-bottom: 30px; }
+        .reveal h3 { color: #ffffff; }
+        .highlight { color: #b1e8bd; font-weight: bold; }
+        .chart-container {
+            position: relative;
+            height: 65vh;
+            width: 80vw;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .table-container {
+            width: 90%;
+            margin: 0 auto;
+            font-size: 0.7em;
+        }
+        table { border-collapse: collapse; width: 100%; color: #fff; }
+        th { background-color: rgba(177, 232, 189, 0.2); color: #b1e8bd; padding: 15px; border-bottom: 2px solid #b1e8bd; }
+        td { padding: 15px; border-bottom: 1px solid #555; text-align: left; }
+        .source-box {
+            background: rgba(255,255,255,0.05);
+            border-left: 5px solid #b1e8bd;
+            padding: 20px;
+            text-align: left;
+            margin-bottom: 20px;
+            font-size: 0.75em;
+        }
+        .source-box a { color: #b1e8bd; text-decoration: none; }
+        .source-box a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- Slide 1: 封面 -->
+            <section>
+                <h2>2023-2025 台灣大型券商<br>IT 資本支出與人力產值分析</h2>
+                <h4 style="color: #ccc; margin-top: 20px;">國泰證券 vs. 永豐金證券 vs. 中國信託證券</h4>
+                <p style="font-size: 0.6em; margin-top: 50px; color: #888;">策略視野與資訊科技投入比較報告</p>
+            </section>
+
+            <!-- Slide 2: 資本支出圖表 -->
+            <section>
+                <h2>實質資本與資訊投入趨勢 (2023-2025)</h2>
+                <p style="font-size: 0.6em; margin-bottom: 10px;">三家券商多無實體廠房擴建，資金高度集中於 <span class="highlight">軟體開發、資安與雲端基礎設施</span> (單位: 新台幣萬元/推估中位數)</p>
+                <div class="chart-container">
+                    <canvas id="capexChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Slide 3: 人力規模圖表 -->
+            <section>
+                <h2>數位槓桿與人力編制對比</h2>
+                <p style="font-size: 0.6em; margin-bottom: 10px;">不同 IT 戰略造就截然不同的人力結構與 <span class="highlight">單兵產值 (Productivity)</span></p>
+                <div class="chart-container">
+                    <canvas id="workforceChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Slide 4: IT 戰略差異矩陣 -->
+            <section>
+                <h2>三方 IT 戰略佈局矩陣</h2>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>比較構面</th>
+                            <th>國泰證券</th>
+                            <th>永豐金證券</th>
+                            <th>中國信託證券</th>
+                        </tr>
+                        <tr>
+                            <td><strong class="highlight">核心驅動力</strong></td>
+                            <td>極致數位原生，主攻 App 單一入口與數位客群</td>
+                            <td>虛實並重，大戶投 API 串接與跨界場景金融</td>
+                            <td>結合金控資源，主打高資產客群與嚴格資安合規</td>
+                        </tr>
+                        <tr>
+                            <td><strong class="highlight">IT 支出主力</strong></td>
+                            <td>雲端訂閱、UI/UX 優化、數位行銷漏斗</td>
+                            <td>混合雲架構、實體分行數位化、核心硬體汰換</td>
+                            <td>零信任架構、mTLS、高可用性交易主機</td>
+                        </tr>
+                        <tr>
+                            <td><strong class="highlight">資訊編制特色</strong></td>
+                            <td>高數位人員占比，人均數位客戶服務量極高</td>
+                            <td>數位與傳統營業人員均衡，著重社群研發</td>
+                            <td>精兵政策，高度借力金控科技處 (CTBC Tech) 綜效</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Slide 5: 資料來源與下載連結 -->
+            <section>
+                <h2>資料來源與原始報告下載</h2>
+                
+                <div class="source-box">
+                    <strong style="font-size: 1.2em; color: #fff;">公開資訊觀測站 (MOPS) 財務報告與會計師查核意見</strong><br>
+                    依據會計準則，三家皆聲明「無重大實體資本擴建」，相關 IT 投入多列於營業費用與無形資產。<br>
+                    <a href="https://mops.twse.com.tw" target="_blank">👉 前往 MOPS 查詢 (代號: 2882, 2890, 2891)</a>
+                </div>
+
+                <div class="source-box">
+                    <strong style="font-size: 1.2em; color: #fff;">最新年度 ESG 永續報告書 PDF 下載</strong><br>
+                    <ul>
+                        <li><a href="https://www.cathaysec.com.tw/download/2025%E5%B9%B4%E6%B0%B8%E7%BA%8C%E5%A0%B1%E5%91%8A%E6%9B%B8.pdf" target="_blank">國泰綜合證券 2025 永續報告書</a></li>
+                        <li><a href="https://securities.sinopac.com/upload/sinopac/fileResources/19ff923815900000c28c.pdf" target="_blank">永豐金證券 2025 永續報告書</a></li>
+                        <li><a href="https://www.ctbcsec.com/2020/pdf/2024%E4%B8%AD%E5%9C%8B%E4%BF%A1%E8%A8%97%E8%AD%89%E6%B0%B8%E7%BA%8C%E5%A0%B1%E5%91%8A%E6%9B%B8.pdf" target="_blank">中國信託證券 2024/2025 永續報告書</a></li>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- 引入 Reveal.js 主程式 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+    <script>
+        // 初始化簡報
+        Reveal.initialize({
+            width: 1920,
+            height: 1080,
+            margin: 0.1,
+            controls: true,
+            progress: true,
+            center: true,
+            hash: true,
+            transition: 'slide'
+        });
+
+        // 定義共用顏色 (含專屬亮綠色)
+        const colors = {
+            cathay: 'rgba(255, 159, 64, 0.8)',
+            sinopac: 'rgba(255, 99, 132, 0.8)',
+            ctbc: '#b1e8bd'
+        };
+
+        // 資本支出圖表 (Slide 2)
+        const ctxCapex = document.getElementById('capexChart').getContext('2d');
+        new Chart(ctxCapex, {
+            type: 'bar',
+            data: {
+                labels: ['2023年', '2024年', '2025年'],
+                datasets: [
+                    { label: '國泰證券 (萬)', data: [31500, 36000, 40000], backgroundColor: colors.cathay },
+                    { label: '永豐金證券 (萬)', data: [27500, 31500, 34000], backgroundColor: colors.sinopac },
+                    { label: '中國信託證券 (萬)', data: [22500, 25000, 28500], backgroundColor: colors.ctbc }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { labels: { color: 'white', font: { size: 18 } } }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        ticks: { color: 'white', font: { size: 14 } },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                    },
+                    x: { 
+                        ticks: { color: 'white', font: { size: 18 } },
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        // 人力規模圖表 (Slide 3)
+        const ctxWorkforce = document.getElementById('workforceChart').getContext('2d');
+        new Chart(ctxWorkforce, {
+            type: 'bar',
+            data: {
+                labels: ['總員工人數 (約略值)'],
+                datasets: [
+                    { label: '國泰證券 (~1,400人)', data: [1405], backgroundColor: colors.cathay },
+                    { label: '永豐金證券 (~2,750人)', data: [2750], backgroundColor: colors.sinopac },
+                    { label: '中國信託證券 (~760人)', data: [759], backgroundColor: colors.ctbc }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    legend: { labels: { color: 'white', font: { size: 18 } } }
+                },
+                scales: {
+                    x: { 
+                        beginAtZero: true, 
+                        ticks: { color: 'white', font: { size: 14 } },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                    },
+                    y: { 
+                        ticks: { color: 'white', font: { size: 16 } },
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
